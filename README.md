@@ -119,7 +119,7 @@ docker run -d --name nextcloud \
        hoellen/nextcloud
 ```
 
-You are **not obliged** to use `ADMIN_USER` and `ADMIN_PASSWORD`. If these variables are not provided, you'll be able to configure your admin acccount from your browser.
+You are **not obliged** to use `ADMIN_USER` and `ADMIN_PASSWORD`. If these variables are not provided, you'll be able to configure your admin account from your browser.
 
 **Below you can find a docker-compose file, which is very useful!**
 
