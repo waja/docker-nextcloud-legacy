@@ -32,8 +32,9 @@ ENV UID=991 GID=991 \
     DOMAIN=localhost \
     CHECK_PERMISSIONS=1
 
-RUN apk -U upgrade \
- && apk add -t build-dependencies \
+# hadolint ignore=DL3003,DL3018,SC2046,DL4006
+RUN apk -U --no-cache upgrade \
+ && apk add --no-cache -t build-dependencies \
     gnupg \
     tar \
     build-base \
@@ -43,7 +44,7 @@ RUN apk -U upgrade \
     libtool \
     samba-dev \
     imagemagick-dev \
- && apk add \
+ && apk add --no-cache \
     libressl \
     ca-certificates \
     libsmbclient \
