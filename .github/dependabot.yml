@@ -18,6 +18,9 @@ updates:
     target-branch: "master"
     reviewers:
       - "waja"
+    ignore:
+      - dependency-name: "ghcr.io/waja/nginx-php"
+        update-types: ["version-update:semver-major","version-update:semver-minor"]
     pull-request-branch-name:
       separator: "-"
     open-pull-requests-limit: 10
