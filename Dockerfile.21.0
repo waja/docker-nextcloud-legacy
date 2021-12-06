@@ -3,6 +3,19 @@ FROM hoellen/nginx-php:7.4
 ARG NEXTCLOUD_VERSION=21.0.7
 ARG GPG_nextcloud="2880 6A87 8AE4 23A2 8372  792E D758 99B9 A724 937A"
 
+# See http://label-schema.org/rc1/ and https://microbadger.com/labels
+LABEL maintainer="Jan Wagner <waja@cyconet.org>" \
+    org.label-schema.name="Nextcloud v${NEXTCLOUD_VERSION}" \
+    org.label-schema.description="A server software for creating file hosting services" \
+    org.label-schema.vendor="Cyconet" \
+    org.label-schema.schema-version="1.0" \
+    org.label-schema.build-date="${BUILD_DATE:-unknown}" \
+    org.label-schema.version="${BUILD_VERSION:-unknown}" \
+    org.label-schema.vcs-url="${VCS_URL:-unknown}" \
+    org.label-schema.vcs-ref="${VCS_REF:-unknown}" \
+    org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}" \
+    org.opencontainers.image.source="https://github.com/waja/docker-nextcloud-legacy"
+
 ENV UID=991 GID=991 \
     UPLOAD_MAX_SIZE=10G \
     APC_SHM_SIZE=128M \
@@ -74,9 +87,5 @@ RUN chmod +x /usr/local/bin/* /etc/s6.d/*/* /etc/s6.d/.s6-svscan/*
 VOLUME /data /config /apps2 /nextcloud/themes
 
 EXPOSE 8888
-
-LABEL description="A server software for creating file hosting services" \
-      nextcloud="Nextcloud v${NEXTCLOUD_VERSION}" \
-      maintainer="hoellen <info@hoellen.eu>"
 
 CMD ["run.sh"]
