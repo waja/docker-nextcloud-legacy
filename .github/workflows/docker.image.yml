@@ -6,6 +6,7 @@ on:
       - $default-branch
       - development
       - master
+      - NC-*
     tags:
       - '*.*.*-*'
   # Run tests for any PRs
